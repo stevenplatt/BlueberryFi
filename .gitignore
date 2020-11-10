@@ -1,0 +1,3 @@
+# don't track python virtual environment folders
+venv/
+__pycache__/
