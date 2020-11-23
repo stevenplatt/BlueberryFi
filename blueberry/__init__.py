@@ -18,3 +18,6 @@ class User(db.Model):
             return '<User %r>' % self.adminuser
 
 from blueberry import routes
+
+# query format
+# test = User.query.filter_by(adminuser='admin').first()

@@ -26,5 +26,5 @@ def home():
         return render_template('admin.html', adminuser='admin')
 
     else:
-        my_ip = get_host_ip()
-        return render_template('admin.html', ip=my_ip)
+        config = User.query.filter_by(adminuser='admin').first()
+        return render_template('admin.html', netname=config.netname)
