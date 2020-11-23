@@ -1,4 +1,9 @@
-from blueberryfi import db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blueberry.db'
+db = SQLAlchemy(app)
 
 class User(db.Model):
         id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
@@ -11,3 +16,5 @@ class User(db.Model):
 
         def __repr__(self):
             return '<User %r>' % self.adminuser
+
+from blueberry import routes

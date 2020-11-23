@@ -1,4 +1,4 @@
-from blueberryfi import app
+from blueberry import app
 import os
 
 if __name__ == '__main__':

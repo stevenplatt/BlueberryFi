@@ -1,12 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, session, abort 
-from blueberryfi import app, db
-from blueberryfi.db_models import User
+from blueberry import app, db
+from blueberry import User
 import socket
-
-def get_host_ip():
-    host_name = socket.gethostname() 
-    host_ip = socket.gethostbyname(host_name) 
-    return host_ip
 
 @app.route("/login", methods=['POST'])
 def login():
