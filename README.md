@@ -1,2 +1,2 @@
-# wave
-Simplified web interface for OpenWRT with embedded ad and tracker blocking.
+# Blueberry Fi
+WiFi router software for the Raspberry Pi.
