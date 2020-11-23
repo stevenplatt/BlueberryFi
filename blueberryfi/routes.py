@@ -3,6 +3,11 @@ from blueberryfi import app, db
 from blueberryfi.db_models import User
 import socket
 
+def get_host_ip():
+    host_name = socket.gethostname() 
+    host_ip = socket.gethostbyname(host_name) 
+    return host_ip
+
 @app.route("/login", methods=['POST'])
 def login():
     if request.form['adminpass'] == 'blueberry':
@@ -26,4 +31,5 @@ def home():
         return render_template('admin.html', adminuser='admin')
 
     else:
-        return render_template('admin.html')
+        my_ip = get_host_ip()
+        return render_template('admin.html', ip=my_ip)
