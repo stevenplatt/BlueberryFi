@@ -1,6 +1,7 @@
 # don't track python virtual environment folders
 venv/
 __pycache__/
-db.sqlite
-blueberryfi/*.pyc
+blueberry.db
+blueberry/*.pyc
+
 
