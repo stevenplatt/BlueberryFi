@@ -2,7 +2,5 @@
 venv/
 __pycache__/
 db.sqlite
-__init__.pyc
-auth.pyc
-main.pyc
+blueberryfi/*.pyc
 

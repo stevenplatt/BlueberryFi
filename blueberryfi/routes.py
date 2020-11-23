@@ -1,13 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for
-app = Flask(__name__)
-
+from flask import render_template, url_for, flash, redirect, request, session, abort 
+from blueberryfi import app, db
+from blueberryfi.db_models import User
+import socket
 
 @app.route("/login", methods=['POST'])
 def login():
-    if request.form['password'] == 'blueberry' and request.form['username'] == 'admin':
+    if request.form['adminpass'] == 'blueberry':
         session['logged_in'] = True
     else:
-        flash('wrong password!')
+        flash('Invalid Password')
     return home()
 
 @app.route("/logout")
@@ -22,7 +23,7 @@ def home():
         return render_template('login.html')
 
     elif request.method == 'POST':
-        return render_template('admin.html', creds=request.form['credential'])
+        return render_template('admin.html', adminuser='admin')
 
     else:
         return render_template('admin.html')
