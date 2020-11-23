@@ -1,7 +1,7 @@
 # don't track python virtual environment folders
 venv/
 __pycache__/
-blueberry.db
+blueberry/blueberry.db
 blueberry/*.pyc
 
 
