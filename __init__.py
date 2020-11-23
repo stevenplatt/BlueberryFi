@@ -14,8 +14,15 @@ def create_app():
 
     class User(UserMixin, db.Model):
         id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
-        password = db.Column(db.String(100))
-        name = db.Column(db.String(1000))
+        netname = db.Column(db.String(100))
+        nettype = db.Column(db.String(100))
+        netpass = db.Column(db.String(100))
+        adblock = db.Column(db.String(100))
+        adminname = db.Column(db.String(100))
+        adminpass = db.Column(db.String(100))
+
+        def __repr__(self):
+            return '<User %r>' % self.adminname
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
