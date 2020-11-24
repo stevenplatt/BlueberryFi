@@ -25,38 +25,54 @@
         <div class="container py-5">
 
             <div class="container">
-              <form>
+              <form method="POST" action="./update">
 
                 <div class="row">
                   <div class="form-group col">
                     <label for="formGroupInput">Network Name</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="{{ netname }}">
+                    <input type="text" class="form-control" name="netname" value="{{ netname }}" required>
                   </div>
                   <div class="form-group col">
                     <label for="formGroupInput3">Network Type</label>
-                    <select id="inputState" class="form-control">
-                      <option selected>Choose One...</option>
-                      <option>IEEE 802.11n (2.4 GHz)</option>
+                    <select name="nettype" class="form-control">
+                      {% if nettype == "IEEE 802.11n (2.4 GHz)" %}
+                      <option selected>IEEE 802.11n (2.4 GHz)</option>
                       <option>IEEE 802.11n (5 GHz)</option>
                       <option>IEEE 802.11ac (5 GHz)</option>
+                      {% elif nettype == "IEEE 802.11n (5 GHz)" %}
+                      <option>IEEE 802.11n (2.4 GHz)</option>
+                      <option selected>IEEE 802.11n (5 GHz)</option>
+                      <option>IEEE 802.11ac (5 GHz)</option>
+                      {% else %}
+                      <option>IEEE 802.11n (2.4 GHz)</option>
+                      <option>IEEE 802.11n (5 GHz)</option>
+                      <option selected>IEEE 802.11ac (5 GHz)</option>
+                      {% endif %}
                     </select>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="form-group col">
                     <label for="formGroupInput2">WiFi Password</label>
-                    <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpBlock" placeholder="WPA2 Personal">
+                    <input type="password" name="netpass" class="form-control" aria-describedby="passwordHelpBlock" value="{{ netpass }}">
+                    <div class="input-group-addon">
+                      <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                    </div>
                     <small id="passwordHelpBlock" class="form-text text-muted">
                       Your password must be 8-20 characters long and must not contain spaces.
                     </small>
                   </div>
                   <div class="form-group col">
                     <label for="formGroupInput3">Ad Blocking</label>
-                    <select id="inputState" class="form-control">
-                      <option selected>Choose One...</option>
-                      <option>Disabled</option>
-                      <option>Enabled</option>
+                    <select name="adblock" class="form-control">
+                      {% if adblock == "Enabled" %}
+                        <option>Disabled</option>
+                        <option selected>Enabled</option>
+                        {% else %}
+                        <option selected>Disabled</option>
+                        <option>Enabled</option>
+                      {% endif %}
                     </select>
                   </div>
                 </div>
@@ -64,8 +80,8 @@
                 <div class="row mt-5">
                   <div class="form-group col-6">
                     <label for="formGroupInput4">Admin Password</label>
-                    <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpBlock2" placeholder="Admin Password">
-                    <small id="passwordHelpBlock2" class="form-text text-muted">
+                    <input type="password" name="adminpass" class="form-control" aria-describedby="passwordHelpBlock2" value="{{ adminpass }}">
+                    <small class="form-text text-muted">
                       Your password must be 8-20 characters long and must not contain spaces.
                     </small>
                   </div>
