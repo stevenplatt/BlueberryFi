@@ -1,9 +1,11 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from blueberry_pkg import routes
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blueberry.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # resolves SQLAlchemy traceback overhead warning
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -17,8 +19,6 @@ class User(db.Model):
 
         def __repr__(self):
             return '<User %r>' % self.adminuser
-
-import routes
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)

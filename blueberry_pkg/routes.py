@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect, request, session, abort 
-from blueberry import app, db, User
+from blueberry_pkg import app, db, User
 import socket
 
 @app.route("/login", methods=['POST'])

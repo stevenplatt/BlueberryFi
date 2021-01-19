@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="blueberry_fi", 
-    version="0.0.1",
+    version="0.0.2",
     author="Steven Platt",
     author_email="info@telecomsteve.com",
     description="A simple web interface and test platform for OpenWRT on the Raspberry Pi",
