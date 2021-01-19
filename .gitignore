@@ -4,5 +4,8 @@ virtualenv/
 __pycache__/
 blueberry_pkg/blueberry.db
 blueberry_pkg/*.pyc
+blueberry_fi.egg-info/
+dist/
+build/
 
 
