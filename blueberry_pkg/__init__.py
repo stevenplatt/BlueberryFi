@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -17,7 +18,11 @@ class User(db.Model):
         def __repr__(self):
             return '<User %r>' % self.adminuser
 
-from blueberry import routes
+import routes
+
+if __name__ == '__main__':
+    app.secret_key = os.urandom(12)
+    app.run(debug=True,host='0.0.0.0')
 
 # query format
 # test = User.query.filter_by(adminuser='admin').first()
